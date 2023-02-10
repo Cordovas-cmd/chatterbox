@@ -15,25 +15,43 @@
   <p id="response"></p>
   <p id="question">What is your name?</p>
 
+  <!-- Name form section -->
   <form id="answerForm">
-
     <!-- label for element with answer ID -->
-
-    <label for="answer">
-      Answer:
-    </label>
-
+    <label for="answer"> Answer: </label>
     <input placeholder="Enter answer here" type="text" id="answer" value="">
-
     <button type="submit">Submit</button>
-
   </form>
-
+<br>
+  <!-- Birthday form section -->
   <form id="birthdayForm">
-    <label for="birthdayDayAnswer"> Day: </label>
-    <!-- set min and max with appropriate values in attribute value -->
-    <input placeholder="Enter day of birthday" type="number" id="birthdayDayAnswer"value="" min="1" max="31">
-    <button type="submit">Submit</button>
+
+    <label for="months">Month:</label>
+    <!-- select tag needs a name -->
+    <select name="months" id="months">
+      <!-- Each option needs a value -->
+      <option value="January">January</option>
+      <option value="February">February</option>
+      <option value="March">March</option>
+      <option value="April">April</option>
+      <option value="May">May</option>
+      <option value="June">June</option>
+      <option value="July">July</option>
+      <option value="August">August</option>
+      <option value="September">September</option>
+      <option value="October">October</option>
+      <option value="November">November</option>
+      <option value="December">December</option>
+    </select>
+
+    <!-- <br><br> -->
+
+    <!-- <div id="birthdayDay"> -->
+      <label for="birthdayDayAnswer"> Day: </label>
+      <!-- set min and max with appropriate values in attribute value -->
+      <input placeholder="Enter day of birthday" type="number" id="birthdayDayAnswer" value="" min="1" max="31">
+      <button type="submit">Submit</button>
+    <!-- </div> -->
   </form>
 
   <script src="script.js"></script>
