@@ -7,7 +7,7 @@ const response = document.getElementById("response");
 
 const answer = document.getElementById("answer").value
 
-response.innerText= "Your name is " + answer;
+response.innerText= "Your name is " + answer + ".";
 
 const question = document.getElementById("question")
 
