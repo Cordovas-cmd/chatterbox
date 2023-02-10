@@ -3,6 +3,25 @@ const answer = document.getElementById("answerForm")
 
 console.log(answerForm);
 
+function calculateNextBirthday(month, day) {
+    // using JS to create a date object (Get year)
+const birthdayYear = new Date().getFullYear();
+console.log(birthdayYear)
+// get value of selected month using index
+const selectedBirthdayMonthElement = document.getElementById("months")
+const birthdayMonth = selectedBirthdayMonthElement.selectedIndex +1;
+
+console.log(birthdayMonth)
+
+// get value of birthday day
+const birthdayDay = document.getElementById("birthdayDayAnswer").value;
+console.log(birthdayDay)
+
+// new instance of Date based on user input
+const birthdayDate = new Date(birthdayYear + "-" + birthdayMonth + "-"  + birthdayDay)
+console.log(birthdayDate)
+}
+
 function runChatbot() {
     event.preventDefault();
 const response = document.getElementById("response");
@@ -19,6 +38,8 @@ if (questionNumber === 0) {
     document.getElementById("answerForm").style.visibility = "hidden";
 } 
 else {
+
+    calculateNextBirthday()
 console.log(questionNumber)
 response.innerText= "You entered a birthday!! ";
 question.innerText = "What is your favorite Holiday?";
