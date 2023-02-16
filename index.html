@@ -46,13 +46,28 @@
 
     <!-- <br><br> -->
 
-    <!-- <div id="birthdayDay"> -->
       <label for="birthdayDayAnswer"> Day: </label>
       <!-- set min and max with appropriate values in attribute value -->
       <input placeholder="Enter day of birthday" type="number" id="birthdayDayAnswer" value="" min="1" max="31">
       <button type="submit">Submit</button>
-    <!-- </div> -->
   </form>
+
+<form id = "holidayForm"action="">
+  <label for="holidays">Holiday</label>
+  <select name="holidays" id="holidays">
+    <option value="Chinese New year">Chinese New Year</option>
+    <option value="Christmas">Christmas</option>
+    <option value="Thanksgiving">Thanksgiving</option>
+    <option value="Halloween">Halloween</option>
+    <option value="Easter">Easter</option>
+    <option value="Hannakuh">Hannukah</option>
+    <option value="Kwanza">Kwanza</option>
+    <option value="Valentines Day">Valentines Day</option>
+    <option value="New year">New year</option>
+    <option value="Ramadan">Ramadan</option>
+  </select>
+  <button type="submit">Submit</button>
+</form>
 
   <script src="script.js"></script>
 </body>
