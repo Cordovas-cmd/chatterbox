@@ -33,7 +33,7 @@ function calculateDaysAway(date) {
 
 function calculateNextBirthday() {
     // using JS to create a date object (Get year)
-    const birthdayYear = new Date().getFullYear();
+    let birthdayYear = new Date().getFullYear();
 
     // get value of selected month using index
     const selectedBirthdayMonthElement = document.getElementById("months")
@@ -44,11 +44,17 @@ function calculateNextBirthday() {
     // get value of birthday day
     const birthdayDay = document.getElementById("birthdayDayAnswer").value;
 
-    // new instance of Date based on user input
-    const birthdayDate = new Date(birthdayYear + "-" + birthdayMonth + "-"  + birthdayDay)
-    response.innerText = "Your birthday is  " + calculateDaysAway(birthdayDate) + " days away!";
+     // new instance of Date based on user input
+    let birthdayDate = new Date(birthdayYear + "-" + birthdayMonth + "-"  + birthdayDay)
 
-    // calculateDaysAway(birthdayDate);
+
+    // handle a birthday that already happened
+    if (new Date() > birthdayDate) {
+        birthdayYear = birthdayYear + 1;
+        birthdayDate = new Date(birthdayYear + "-" + birthdayMonth + "-"  + birthdayDay)
+    }
+
+    response.innerText = "Your birthday is  " + calculateDaysAway(birthdayDate) + " days away!";
 }
 
 
