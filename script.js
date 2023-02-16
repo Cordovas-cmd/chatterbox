@@ -5,26 +5,39 @@ const response = document.getElementById("response");
 console.log(answerForm);
 
 function calculateDaysAway(date) {
-    const differenceInMilliseconds = new Date() - date;
+    const differenceInMilliseconds = date - new Date() ;
+
     // 1000 milliseconds in a second, 86400 seconds in a day
     const millisecondsInASecond = 1000;
 
     const differenceFromMillisecondsToSeconds = differenceInMilliseconds / millisecondsInASecond;
 
-    console.log(differenceInMilliseconds/1000)
+    const differenceInSeconds = differenceFromMillisecondsToSeconds
 
-    // const differenceInSeconds = differenceFromMillisecondsToSeconds
+    const secondsInAMinute = 60
 
-    const howManyDaysAwayIsTheDate = differenceFromMillisecondsToSeconds/86400
+    const differenceInMinutes =  differenceInSeconds / secondsInAMinute
 
-    return howManyDaysAwayIsTheDate;
+    const minutesInAnHour = 60;
+
+    const differenceInHours = differenceInMinutes / minutesInAnHour
+
+    const hoursInADay = 24;
+
+    const differenceInDays = differenceInHours / hoursInADay
+
+    const howManyDaysAwayIsTheDate = differenceInDays
+
+    return Math.ceil(howManyDaysAwayIsTheDate);
 }
 
 function calculateNextBirthday() {
     // using JS to create a date object (Get year)
     const birthdayYear = new Date().getFullYear();
+
     // get value of selected month using index
     const selectedBirthdayMonthElement = document.getElementById("months")
+
     const birthdayMonth = selectedBirthdayMonthElement.selectedIndex +1;
 
 
@@ -33,7 +46,7 @@ function calculateNextBirthday() {
 
     // new instance of Date based on user input
     const birthdayDate = new Date(birthdayYear + "-" + birthdayMonth + "-"  + birthdayDay)
-    response.innerText = calculateDaysAway(birthdayDate);
+    response.innerText = "Your birthday is  " + calculateDaysAway(birthdayDate) + " days away!";
 
     // calculateDaysAway(birthdayDate);
 }
