@@ -5,8 +5,19 @@ const response = document.getElementById("response");
 console.log(answerForm);
 
 function calculateDaysAway(date) {
-    const howManyDaysAwayIsTheDate = new Date() - date;
-return howManyDaysAwayIsTheDate;
+    const differenceInMilliseconds = new Date() - date;
+    // 1000 milliseconds in a second, 86400 seconds in a day
+    const millisecondsInASecond = 1000;
+
+    const differenceFromMillisecondsToSeconds = differenceInMilliseconds / millisecondsInASecond;
+
+    console.log(differenceInMilliseconds/1000)
+
+    // const differenceInSeconds = differenceFromMillisecondsToSeconds
+
+    const howManyDaysAwayIsTheDate = differenceFromMillisecondsToSeconds/86400
+
+    return howManyDaysAwayIsTheDate;
 }
 
 function calculateNextBirthday() {
