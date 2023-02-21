@@ -1,8 +1,8 @@
 var questionNumber = 0;
-const answer = document.getElementById("answerForm")
+// const answer = document.getElementById("answerForm")
 const response = document.getElementById("response");
 
-console.log(answerForm);
+// console.log(answerForm);
 
 function calculateDaysAway(date) {
     const differenceInMilliseconds = date - new Date();
@@ -62,26 +62,31 @@ function runChatbot() {
     event.preventDefault();
     const answer = document.getElementById("answer").value
     const question = document.getElementById("question")
+    console.log(questionNumber)
 
     if (questionNumber === 0) {
+        console.log(questionNumber)
+
         response.innerText = "Your name is " + answer + ".";
         question.innerText = "When is your birthday?";
         questionNumber++;
         document.getElementById("birthdayForm").style.visibility = "visible";
         document.getElementById("answerForm").style.visibility = "hidden";
     }
-    else if (questionNumber === 1) {
+    else {
         calculateNextBirthday();
         console.log(questionNumber)
         question.innerText = "What is your favorite Holiday?";
         
     }
-    else if (questionNumber === 2) {
-        response.innerText = "Your Holiday is X days away."
-    } 
+    // else if (questionNumber === 2) {
+    //     response.innerText = "Your Holiday is X days away."
+    // } 
 questionNumber++;
-}
+console.log(questionNumber)
 
+}
+const answerForm = document.getElementById("answerForm")
 answerForm.addEventListener("submit", function (event) {
     runChatbot();
 })
@@ -91,7 +96,10 @@ birthdayForm.addEventListener("submit", function (event) {
     runChatbot();
 })
 
-const holidayForm = document.getElementById("holidayForm")
-holidayForm.addEventListener("submit", function(event) {
-    runChatbot();
-})
+// const holidayForm = document.getElementById("holidayForm")
+// holidayForm.addEventListener("submit", function(event) {
+//     runChatbot();
+// })
+
+// need to figure out why function is triggering twice on question answer
+// Skipping birthday display and going straight to holiday...
