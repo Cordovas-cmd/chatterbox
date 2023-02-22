@@ -103,3 +103,5 @@ birthdayForm.addEventListener("submit", function (event) {
 
 // need to figure out why function is triggering twice on question answer
 // Skipping birthday display and going straight to holiday...
+// want to add a random array of question to ask with choices linked in the future
+// maybe add some small features
