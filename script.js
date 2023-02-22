@@ -69,19 +69,19 @@ function runChatbot() {
 
         response.innerText = "Your name is " + answer + ".";
         question.innerText = "When is your birthday?";
-        questionNumber++;
+        // questionNumber++;
         document.getElementById("birthdayForm").style.visibility = "visible";
         document.getElementById("answerForm").style.visibility = "hidden";
     }
-    else {
+    else if (questionNumber === 1){
         calculateNextBirthday();
         console.log(questionNumber)
         question.innerText = "What is your favorite Holiday?";
         
     }
-    // else if (questionNumber === 2) {
-    //     response.innerText = "Your Holiday is X days away."
-    // } 
+    else if (questionNumber === 2) {
+        response.innerText = "Your Holiday is X days away."
+    } 
 questionNumber++;
 console.log(questionNumber)
 
@@ -96,10 +96,10 @@ birthdayForm.addEventListener("submit", function (event) {
     runChatbot();
 })
 
-// const holidayForm = document.getElementById("holidayForm")
-// holidayForm.addEventListener("submit", function(event) {
-//     runChatbot();
-// })
+const holidayForm = document.getElementById("holidayForm")
+holidayForm.addEventListener("submit", function(event) {
+    runChatbot();
+})
 
 // need to figure out why function is triggering twice on question answer
 // Skipping birthday display and going straight to holiday...
