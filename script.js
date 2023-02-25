@@ -81,6 +81,7 @@ function runChatbot() {
     }
     else if (questionNumber === 2) {
         response.innerText = "Your Holiday is X days away."
+        question.innerText = "What's your favorite color??"
     } 
 questionNumber++;
 console.log(questionNumber)
@@ -105,3 +106,5 @@ holidayForm.addEventListener("submit", function(event) {
 // Skipping birthday display and going straight to holiday...
 // want to add a random array of question to ask with choices linked in the future
 // maybe add some small features
+
+// have an idea for a new api kinda like a word guessing game but poke based.
