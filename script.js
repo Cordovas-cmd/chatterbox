@@ -108,3 +108,5 @@ holidayForm.addEventListener("submit", function(event) {
 // maybe add some small features
 
 // have an idea for a new api kinda like a word guessing game but poke based.
+
+// weant to see if I can add voice recognition or speech to text.
