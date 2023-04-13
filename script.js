@@ -58,6 +58,66 @@ function calculateNextBirthday() {
 }
 
 
+function calculateNextHoliday() {
+
+    const holidays = document.getElementById("holidays");
+
+    const favoriteHoliday= holidays.options[holidays.selectedIndex].value;
+
+    let month = 1;
+    let day = 1;
+    switch(favoriteHoliday) {
+        case "Chinese New Year":
+            month = 1;
+            day = 22;
+            break;
+        case "Christmas":
+            month = 12;
+            day = 25;
+            break;
+        case "Thanksgiving":
+            month = 11;
+            day = 26;
+            break;
+        case "Halloween":
+            month = 10;
+            day = 31;
+            break;
+        case "Hannukah":
+            month = 12;
+            day = 7;
+            break;
+        case "Easter":
+            month = 4;
+            day = 9;
+            break;
+        case "Kwanza":
+            month = 12;
+            day = 26;
+            break;
+        case "New year":
+            month = 1;
+            day = 1;
+            break;
+        case "Ramadan":
+            month = 3;
+            day = 26;
+            break;
+        case "Valentines Day":
+            month = 2;
+            day = 14;
+            break;
+        default: 
+            month =1;
+            day=1;
+       
+    }
+
+
+
+    response.innerText = "Your Holiday " + favoriteHoliday + " is X days away.";
+}
+
 function runChatbot() {
     event.preventDefault();
     const answer = document.getElementById("answer").value
@@ -80,7 +140,9 @@ function runChatbot() {
         
     }
     else if (questionNumber === 2) {
-        response.innerText = "Your Holiday is X days away."
+
+        calculateNextHoliday();
+        
         question.innerText = "What's your favorite color??"
     } 
 questionNumber++;
