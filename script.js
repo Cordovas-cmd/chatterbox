@@ -109,13 +109,16 @@ function calculateNextHoliday() {
             break;
         default: 
             month =1;
-            day=1;
+            day =1;
        
     }
 
+    const year = new Date().getFullYear();
+    const holidayDate = new Date(year + "-" + month + "-" + day)
 
+const howManyDaysAwayIsHoliday =calculateDaysAway(holidayDate)
 
-    response.innerText = "Your Holiday " + favoriteHoliday + " is X days away.";
+    response.innerText = "Your Holiday " + favoriteHoliday + " is "+ howManyDaysAwayIsHoliday +  " days away.";
 }
 
 function runChatbot() {
