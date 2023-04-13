@@ -113,12 +113,21 @@ function calculateNextHoliday() {
        
     }
 
-    const year = new Date().getFullYear();
-    const holidayDate = new Date(year + "-" + month + "-" + day)
+    let year = new Date().getFullYear();
+
+    // const year = new Date().getFullYear();
+    let holidayDate = new Date(year + "-" + month + "-" + day)
+
+    // If holiday has already happened this year
+    if( new Date() > holidayDate) {
+        year++
+
+        holidayDate = new Date(year + "-" + month + "-" + day);
+    }
 
 const howManyDaysAwayIsHoliday =calculateDaysAway(holidayDate)
 
-    response.innerText = "Your Holiday " + favoriteHoliday + " is "+ howManyDaysAwayIsHoliday +  " days away.";
+    response.innerText =  favoriteHoliday + " is "+ howManyDaysAwayIsHoliday +  " days away.";
 }
 
 function runChatbot() {
@@ -140,13 +149,15 @@ function runChatbot() {
         calculateNextBirthday();
         console.log(questionNumber)
         question.innerText = "What is your favorite Holiday?";
+        document.getElementById("birthdayForm").style.visibility = "hidden";
+        document.getElementById("holidayForm").style.visibility = "visible"
         
     }
     else if (questionNumber === 2) {
 
         calculateNextHoliday();
         
-        question.innerText = "What's your favorite color??"
+        question.innerText = "How old are you??"
     } 
 questionNumber++;
 console.log(questionNumber)
