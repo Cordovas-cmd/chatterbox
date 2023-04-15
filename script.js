@@ -134,9 +134,16 @@ function runChatbot() {
     event.preventDefault();
     const answer = document.getElementById("answer").value
     const question = document.getElementById("question")
-    console.log(questionNumber)
 
-    if (questionNumber === 0) {
+     if(questionNumber === -1) {
+
+        question.innerText = "What is your name?"
+        response.innerText = "";
+
+        document.getElementById("answerForm").style.visibility = "visible";
+     }
+
+    else if (questionNumber === 0) {
         console.log(questionNumber)
 
         response.innerText = "Your name is " + answer + ".";
@@ -158,7 +165,17 @@ function runChatbot() {
         calculateNextHoliday();
         
         question.innerText = "How old are you??"
+        document.getElementById("holidayForm").style.visibility = "hidden";
+        document.getElementById("answerForm").style.visibility = "visible";
     } 
+
+    else if (questionNumber === 3) {
+
+        const yearOfBirth = new Date().getFullYear() - answer;
+        response.innerText = "You were born in " + yearOfBirth + ".";
+
+        question.innerText = "Thanks for chatting with me!!"
+    }
 questionNumber++;
 console.log(questionNumber)
 
@@ -178,6 +195,13 @@ holidayForm.addEventListener("submit", function(event) {
     runChatbot();
 })
 
+const restartButton = document.getElementById("restartButton");
+restartButton.addEventListener("click", function(event) {
+    console.log("you clicked me!");
+
+    questionNumber = -1;
+    runChatbot();
+})
 // need to figure out why function is triggering twice on question answer
 // Skipping birthday display and going straight to holiday...
 // want to add a random array of question to ask with choices linked in the future
