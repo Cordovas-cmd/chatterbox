@@ -18,3 +18,7 @@ body {
 #birthdayForm {
   visibility: hidden;
 }
+
+#restartButton {
+  visibility: hidden;
+}

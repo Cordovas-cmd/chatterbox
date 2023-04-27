@@ -141,6 +141,7 @@ function runChatbot() {
         response.innerText = "";
 
         document.getElementById("answerForm").style.visibility = "visible";
+        document.getElementById("restartButton").style.visibility = "hidden";
      }
 
     else if (questionNumber === 0) {
@@ -151,6 +152,7 @@ function runChatbot() {
         // questionNumber++;
         document.getElementById("birthdayForm").style.visibility = "visible";
         document.getElementById("answerForm").style.visibility = "hidden";
+
     }
     else if (questionNumber === 1){
         calculateNextBirthday();
@@ -174,7 +176,9 @@ function runChatbot() {
         const yearOfBirth = new Date().getFullYear() - answer;
         response.innerText = "You were born in " + yearOfBirth + ".";
 
-        question.innerText = "Thanks for chatting with me!!"
+        question.innerText = "Thanks for chatting with me!!";
+
+        document.getElementById("restartButton").style.visibility = "visible";
     }
 questionNumber++;
 console.log(questionNumber)
@@ -183,6 +187,7 @@ console.log(questionNumber)
 const answerForm = document.getElementById("answerForm")
 answerForm.addEventListener("submit", function (event) {
     runChatbot();
+    document.getElementById("answer").value= "";
 })
 
 const birthdayForm = document.getElementById("birthdayForm")
