@@ -16,9 +16,13 @@ body {
 }
 
 #birthdayForm {
-  visibility: hidden;
+  /* visibility: hidden; */
+  display: none;
 }
-
+#holidayForm {
+  display: none;
+}
 #restartButton {
-  visibility: hidden;
+  display: none;
+  /* visibility: hidden; */
 }

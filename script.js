@@ -1,7 +1,7 @@
-var questionNumber = 0;
+var questionNumber = 0
 // const answer = document.getElementById("answerForm")
 const response = document.getElementById("response");
-
+console.log(questionNumber)
 // console.log(answerForm);
 
 function calculateDaysAway(date) {
@@ -143,8 +143,12 @@ function runChatbot() {
         question.innerText = "What is your name?"
         response.innerText = "";
 
-        answerForm.style.visibility = "visible";
-        restartButton.style.visibility = "hidden";
+        // answerForm.style.visibility = "visible";
+        answerForm.style.display = "block";
+        // restartButton.style.visibility = "hidden";
+        birthdayForm.style.display = "none"
+        holidayForm.style.display = "none"
+        restartButton.style.display = "none";
     }
 
     else if (questionNumber === 0) {
@@ -154,8 +158,10 @@ function runChatbot() {
         // response.innerText = "Your name is " + answer + "?\n Nice to meet you " + answer + " !";
         question.innerText = "When is your birthday?";
         // questionNumber++;
-        birthdayForm.style.visibility = "visible";
-        answerForm.style.visibility = "hidden";
+        // birthdayForm.style.visibility = "visible";
+        birthdayForm.style.display= "block";
+        // answerForm.style.visibility = "hidden";
+        answerForm.style.display = "none";
 
     }
     else if (questionNumber === 1) {
@@ -165,8 +171,10 @@ function runChatbot() {
         console.log(questionNumber)
 
         question.innerText = "What is your favorite Holiday?";
-        birthdayForm.style.visibility = "hidden";
-        holidayForm.style.visibility = "visible"
+        // birthdayForm.style.visibility = "hidden";
+        birthdayForm.style.display = "none";
+        // holidayForm.style.visibility = "visible"
+        holidayForm.style.display = "block"
 
     }
     else if (questionNumber === 2) {
@@ -174,8 +182,10 @@ function runChatbot() {
         calculateNextHoliday();
 
         question.innerText = "How old are you??"
-        holidayForm.style.visibility = "hidden";
-        answerForm.style.visibility = "visible";
+        // holidayForm.style.visibility = "hidden";
+        holidayForm.style.display = "none";
+        // answerForm.style.visibility = "visible";
+        answerForm.style.display = "block";
     }
 
     else if (questionNumber === 3) {
@@ -184,12 +194,14 @@ function runChatbot() {
         response.innerText = "You were born in " + yearOfBirth + ".";
 
         question.innerText = "Thanks for chatting with me!!";
-        answerForm.style.visibility = "hidden";
+        // answerForm.style.visibility = "hidden";
+        answerForm.style.display = "none";
 
-        restartButton.style.visibility = "visible";
+        // restartButton.style.visibility = "visible";
+        restartButton.style.display = "block";
     }
 
-    questionNumber++;
+    questionNumber+=1;
     console.log(questionNumber)
 
 }
