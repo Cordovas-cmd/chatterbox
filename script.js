@@ -62,11 +62,11 @@ function calculateNextHoliday() {
 
     const holidays = document.getElementById("holidays");
 
-    const favoriteHoliday= holidays.options[holidays.selectedIndex].value;
+    const favoriteHoliday = holidays.options[holidays.selectedIndex].value;
 
     let month = 1;
     let day = 1;
-    switch(favoriteHoliday) {
+    switch (favoriteHoliday) {
         case "Chinese New Year":
             month = 1;
             day = 22;
@@ -107,10 +107,10 @@ function calculateNextHoliday() {
             month = 2;
             day = 14;
             break;
-        default: 
-            month =1;
-            day =1;
-       
+        default:
+            month = 1;
+            day = 1;
+
     }
 
     let year = new Date().getFullYear();
@@ -119,57 +119,64 @@ function calculateNextHoliday() {
     let holidayDate = new Date(year + "-" + month + "-" + day)
 
     // If holiday has already happened this year
-    if( new Date() > holidayDate) {
+    if (new Date() > holidayDate) {
         year++
 
         holidayDate = new Date(year + "-" + month + "-" + day);
     }
 
-const howManyDaysAwayIsHoliday =calculateDaysAway(holidayDate)
+    const howManyDaysAwayIsHoliday = calculateDaysAway(holidayDate)
 
-    response.innerText =  favoriteHoliday + " is "+ howManyDaysAwayIsHoliday +  " days away.";
+    response.innerText = favoriteHoliday + " is " + howManyDaysAwayIsHoliday + " days away.";
 }
 
 function runChatbot() {
-    event.preventDefault();
-    const answer = document.getElementById("answer").value
-    const question = document.getElementById("question")
 
-     if(questionNumber === -1) {
+    event.preventDefault();
+
+    const answer = document.getElementById("answer").value;
+    const question = document.getElementById("question");
+    const answerForm = document.getElementById("answerForm");
+
+    if (questionNumber === -1) {
 
         question.innerText = "What is your name?"
         response.innerText = "";
 
-        document.getElementById("answerForm").style.visibility = "visible";
-        document.getElementById("restartButton").style.visibility = "hidden";
-     }
+        answerForm.style.visibility = "visible";
+        restartButton.style.visibility = "hidden";
+    }
 
     else if (questionNumber === 0) {
         console.log(questionNumber)
 
         response.innerText = "Your name is " + answer + ".";
+        // response.innerText = "Your name is " + answer + "?\n Nice to meet you " + answer + " !";
         question.innerText = "When is your birthday?";
         // questionNumber++;
-        document.getElementById("birthdayForm").style.visibility = "visible";
-        document.getElementById("answerForm").style.visibility = "hidden";
+        birthdayForm.style.visibility = "visible";
+        answerForm.style.visibility = "hidden";
 
     }
-    else if (questionNumber === 1){
+    else if (questionNumber === 1) {
+
         calculateNextBirthday();
+
         console.log(questionNumber)
+
         question.innerText = "What is your favorite Holiday?";
-        document.getElementById("birthdayForm").style.visibility = "hidden";
-        document.getElementById("holidayForm").style.visibility = "visible"
-        
+        birthdayForm.style.visibility = "hidden";
+        holidayForm.style.visibility = "visible"
+
     }
     else if (questionNumber === 2) {
 
         calculateNextHoliday();
-        
+
         question.innerText = "How old are you??"
-        document.getElementById("holidayForm").style.visibility = "hidden";
-        document.getElementById("answerForm").style.visibility = "visible";
-    } 
+        holidayForm.style.visibility = "hidden";
+        answerForm.style.visibility = "visible";
+    }
 
     else if (questionNumber === 3) {
 
@@ -177,17 +184,19 @@ function runChatbot() {
         response.innerText = "You were born in " + yearOfBirth + ".";
 
         question.innerText = "Thanks for chatting with me!!";
+        answerForm.style.visibility = "hidden";
 
-        document.getElementById("restartButton").style.visibility = "visible";
+        restartButton.style.visibility = "visible";
     }
-questionNumber++;
-console.log(questionNumber)
+
+    questionNumber++;
+    console.log(questionNumber)
 
 }
 const answerForm = document.getElementById("answerForm")
 answerForm.addEventListener("submit", function (event) {
     runChatbot();
-    document.getElementById("answer").value= "";
+    document.getElementById("answer").value = "";
 })
 
 const birthdayForm = document.getElementById("birthdayForm")
@@ -196,12 +205,12 @@ birthdayForm.addEventListener("submit", function (event) {
 })
 
 const holidayForm = document.getElementById("holidayForm")
-holidayForm.addEventListener("submit", function(event) {
+holidayForm.addEventListener("submit", function (event) {
     runChatbot();
 })
 
 const restartButton = document.getElementById("restartButton");
-restartButton.addEventListener("click", function(event) {
+restartButton.addEventListener("click", function (event) {
     console.log("you clicked me!");
 
     questionNumber = -1;
