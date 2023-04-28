@@ -143,9 +143,7 @@ function runChatbot() {
         question.innerText = "What is your name?"
         response.innerText = "";
 
-        // answerForm.style.visibility = "visible";
         answerForm.style.display = "block";
-        // restartButton.style.visibility = "hidden";
         birthdayForm.style.display = "none"
         holidayForm.style.display = "none"
         restartButton.style.display = "none";
@@ -157,10 +155,7 @@ function runChatbot() {
         response.innerText = "Your name is " + answer + ".";
         // response.innerText = "Your name is " + answer + "?\n Nice to meet you " + answer + " !";
         question.innerText = "When is your birthday?";
-        // questionNumber++;
-        // birthdayForm.style.visibility = "visible";
         birthdayForm.style.display= "block";
-        // answerForm.style.visibility = "hidden";
         answerForm.style.display = "none";
 
     }
@@ -171,9 +166,7 @@ function runChatbot() {
         console.log(questionNumber)
 
         question.innerText = "What is your favorite Holiday?";
-        // birthdayForm.style.visibility = "hidden";
         birthdayForm.style.display = "none";
-        // holidayForm.style.visibility = "visible"
         holidayForm.style.display = "block"
 
     }
@@ -182,9 +175,7 @@ function runChatbot() {
         calculateNextHoliday();
 
         question.innerText = "How old are you??"
-        // holidayForm.style.visibility = "hidden";
         holidayForm.style.display = "none";
-        // answerForm.style.visibility = "visible";
         answerForm.style.display = "block";
     }
 
@@ -194,10 +185,8 @@ function runChatbot() {
         response.innerText = "You were born in " + yearOfBirth + ".";
 
         question.innerText = "Thanks for chatting with me!!";
-        // answerForm.style.visibility = "hidden";
         answerForm.style.display = "none";
 
-        // restartButton.style.visibility = "visible";
         restartButton.style.display = "block";
     }
 
